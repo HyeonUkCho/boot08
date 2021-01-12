@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-wxtras-springscurity5">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boot08</title>
+</head>
+<body>
+    <h1>/admin for Admin</h1>
+    <hr />
+    <h3 sec:authentication="name">Spring security username</h3>
+    <h3>[[${#authentication.name}]]</h3>
+    <hr />
+
+    <p sec:authorize-url="/admin/aaa">
+        <a href="/admin/aaa">ADMIN AAA</a>
+    </p>
+
+    <p sec:authorize-url="/manager/aaa">
+        <a href="/manager/aaa">MANAGER AAA</a>
+    </p>
+    <hr />
+
+    <h3 sec:authorize="hasRole('ROLE_ADMIN')">
+        This content is only for ADMIN.
+    </h3>
+    <hr />
+
+    <div>[[${#authentication.principal}]]</div>
+    <hr />
+
+    <div>[[${#authentication.principal.member}]]</div>
+    <hr />
+
+    <div>[[${#authentication.principal.member.uname}]]</div>
+    <hr />
+
+</body>
+</html>
