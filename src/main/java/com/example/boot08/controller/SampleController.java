@@ -16,19 +16,19 @@ public class SampleController {
 
     @GetMapping("/about")
     public String about() {
-        log.info("index");
+        log.info("about");
         return "about";
     }
 
     @GetMapping("/search")
     public String search() {
-        log.info("index");
+        log.info("search");
         return "search";
     }
 
     @GetMapping("/regist")
     public String regist() {
-        log.info("index");
+        log.info("regist");
         return "regist";
     }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymelef.org">
 
 <head>
 
@@ -69,6 +69,12 @@
       </div>
     </div>
   </header>
+
+  <div>
+    <input type='text' id='searchKeyword'>
+    <button id='searchBtn'>Search</button>
+  </div>
+  <p>[[${result}]]</p>
 
   <!-- Post Content -->
   <article>
@@ -155,11 +161,30 @@
     </div>
   </footer>
 
+  <form id="f1" action="/car/getCarInfo" method="get">
+    <input type='hidden' name='carNo' value="">
+  </form>
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
+  <script>
+    $(document).ready(function() {
+
+        var formObj = $("#f1");
+
+        $("#searchBtn").click(function(e){
+            var keywordStr = $("#searchKeyword").val()
+
+            console.log(keywordStr);
+
+            formObj.find("[name='carNo']").val(keywordStr);
+            formObj.submit();
+        });
+    });
+  </script>
   <script src="js/clean-blog.min.js"></script>
 
 </body>
