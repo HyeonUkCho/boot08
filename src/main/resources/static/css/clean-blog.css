@@ -175,6 +175,7 @@ header.masthead {
   background-color: #868e96;
   background-attachment: scroll;
   position: relative;
+  //position: static;
   background-size: cover;
 }
 
