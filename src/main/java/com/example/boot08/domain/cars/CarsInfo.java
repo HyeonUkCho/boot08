@@ -41,6 +41,9 @@ public class CarsInfo extends BaseTimeEntity {
     // 주행거리
     private String driveDistance;
 
+    // 연
+    private String makeYear;
+
     // 판매희망금액
     private String salePrice;
 
@@ -50,11 +53,25 @@ public class CarsInfo extends BaseTimeEntity {
 
     // Builder 패턴을 사용하면 채워야하는 명확한 데이터를 알 수 있다.
     @Builder
-    public CarsInfo(String carNo, String owner, String ownType, String driveDistance, String salePrice, String color, String gearType) {
+    public CarsInfo(String carNo,
+                    String carName,
+                    String carType,
+                    String company,
+                    String owner,
+                    String ownType,
+                    String driveDistance,
+                    String makeYear,
+                    String salePrice,
+                    String color,
+                    String gearType) {
         this.carNo = carNo;
+        this.carName = carName;
+        this.carType = carType;
+        this.company = company;
         this.owner = owner;
         this.ownType = ownType;
         this.driveDistance = driveDistance;
+        this.makeYear = makeYear;
         this.salePrice = salePrice;
         this.color = color;
         this.gearType = gearType;

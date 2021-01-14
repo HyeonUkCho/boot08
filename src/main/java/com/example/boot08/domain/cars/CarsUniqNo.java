@@ -20,7 +20,7 @@ public class CarsUniqNo extends BaseTimeEntity {
     @Id
     private String carNo;
 
-    // 소유주
+    // 차대번호
     private String carUniqNo;
 
     @Builder
