@@ -9,9 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +25,29 @@ public class CarsController {
 
     @PostMapping("/getCarInfo")
     public String getCarInfo(@RequestParam("type") String type,
+                             @RequestParam("keyword") String keyword,
+                             Model model) {
+        logger.info("type : " + type + " keyword : " + keyword);
+        List<CarsInfo> infos = carsService.getCarsInfo(type,keyword);
+        List<CarDto> cars = new ArrayList<>();
+        for(int i=0; i<infos.size(); i++) {
+            CarDto car = CarDto.builder()
+                    .carNo(infos.get(i).getCarNo())
+                    .owner(infos.get(i).getOwner())
+                    .color(infos.get(i).getColor())
+                    .driveDistance(infos.get(i).getDriveDistance())
+                    .gearType(infos.get(i).getGearType())
+                    .ownType(infos.get(i).getOwnType())
+                    .salePrice(infos.get(i).getSalePrice())
+                    .build();
+            cars.add(car);
+        }
+        model.addAttribute("result", cars);
+        return "carsinfo";
+    }
+
+    @GetMapping("/searchByType")
+    public String searchByType(@RequestParam("type") String type,
                              @RequestParam("keyword") String keyword,
                              Model model) {
         logger.info("type : " + type + " keyword : " + keyword);

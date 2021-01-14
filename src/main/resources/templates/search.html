@@ -101,31 +101,37 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview" id="searchSUV">
-          <h2 class="post-title">
-            SUV
-          </h2>
-          <h3 class="post-subtitle">
-            야외활동에 최적화
-          </h3>
+        <div class="post-preview">
+          <a href="/car/searchByType?type=carType&keyword=SUV">
+            <h2 class="post-title">
+              SUV
+            </h2>
+            <h3 class="post-subtitle">
+              야외활동에 최적화
+            </h3>
+          </a>
         </div>
         <hr>
-        <div class="post-preview" id="searchSmallSize">
-          <h2 class="post-title">
-            소형차
-          </h2>
-          <h3 class="post-subtitle">
-            경제적인 혜택
-          </h3>
+        <div class="post-preview">
+          <a href="/car/searchByType?type=carType&keyword=소형">
+            <h2 class="post-title">
+              소형차
+            </h2>
+            <h3 class="post-subtitle">
+              경제적인 혜택
+            </h3>
+          </a>
         </div>
         <hr>
-        <div class="post-preview" id="searchMiddleSize">
-          <h2 class="post-title">
-            중형차
-          </h2>
-          <h3 class="post-subtitle">
-            프리미엄
-          </h3>
+        <div class="post-preview">
+          <a href="/car/searchByType?type=carType&keyword=중형">
+            <h2 class="post-title">
+              중형차
+            </h2>
+            <h3 class="post-subtitle">
+              프리미엄
+            </h3>
+          </a>
         </div>
         <hr>
 <!--        <hr>-->
@@ -248,21 +254,17 @@
 
         var formObj = $("#f1");
 
-        $("#searchSUV").click(function(e){
-            formObj.find("[name='type']").val('carType');
-            formObj.find("[name='keyword']").val('SUV');
+         $("#searchBtn").click(function(e){
+            var typeStr = $("#searchType").find(":selected").val();
+            var keywordStr = $("#searchKeyword").val()
+
+            console.log(typeStr, "", keywordStr);
+
+            formObj.find("[name='type']").val(typeStr);
+            formObj.find("[name='keyword']").val(keywordStr);
             formObj.submit();
         });
-        $("#searchSmallSize").click(function(e){
-            formObj.find("[name='type']").val('carType');
-            formObj.find("[name='keyword']").val('소형');
-            formObj.submit();
-        });
-        $("#searchMiddleSize").click(function(e){
-            formObj.find("[name='type']").val('carType');
-            formObj.find("[name='keyword']").val('중형');
-            formObj.submit();
-        });
+
     });
   </script>
   <script src="js/clean-blog.min.js"></script>
