@@ -1,6 +1,6 @@
 package com.example.boot08.security;
 
-import com.example.boot08.persistence.MemberRepository;
+import com.example.boot08.domain.member.MembersRepository;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class Boot08UserService implements UserDetailsService {
 
     @Autowired
-    MemberRepository repo;
+    MembersRepository repo;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

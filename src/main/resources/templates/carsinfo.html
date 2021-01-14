@@ -26,15 +26,9 @@
 <body>
 
 <p>[[${result}]]</p>
-<div th:with="car=${result}">
+<div th:with="cars=${result}">
   <ul class="list-group">
-    <li class="list-group-item">[[${car.carNo}]]</li>
-    <li class="list-group-item">[[${car.owner}]]</li>
-    <li class="list-group-item">[[${car.ownType}]]</li>
-    <li class="list-group-item">[[${car.driveDistance}]]</li>
-    <li class="list-group-item">[[${car.gearType}]]</li>
-    <li class="list-group-item">[[${car.color}]]</li>
-    <li class="list-group-item">[[${car.salePrice}]]</li>
+    <li class="list-group-item" th:each="car:${cars}">[[${car.carNo}]]</li>
   </ul>
 </div>
 </body>

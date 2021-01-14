@@ -1,15 +1,12 @@
-package com.example.boot08.domain;
+package com.example.boot08.domain.cars;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.example.boot08.domain.BaseTimeEntity;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -17,7 +14,7 @@ import java.util.List;
 @Table(name="tbl_caruniqno")
 @EqualsAndHashCode(of="carNo")
 @ToString
-public class CarUniqNo {
+public class CarsUniqNo extends BaseTimeEntity {
 
     // 차량번호
     @Id
@@ -26,9 +23,9 @@ public class CarUniqNo {
     // 소유주
     private String carUniqNo;
 
-    @CreationTimestamp
-    private LocalDateTime regdate;
-
-    @UpdateTimestamp
-    private LocalDateTime updatedate;
+    @Builder
+    public CarsUniqNo(String carNo, String carUniqNo) {
+        this.carNo = carNo;
+        this.carUniqNo = carUniqNo;
+    }
 }

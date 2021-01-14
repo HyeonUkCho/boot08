@@ -1,7 +1,8 @@
-package com.example.boot08.persistence;
+package com.example.boot08.domain.members;
 
-import com.example.boot08.domain.Member;
-import com.example.boot08.domain.MemberRole;
+import com.example.boot08.domain.member.Members;
+import com.example.boot08.domain.member.MembersRepository;
+import com.example.boot08.domain.member.MembersRole;
 
 import lombok.extern.java.Log;
 import org.junit.Test;
@@ -21,10 +22,10 @@ import java.util.Optional;
 @SpringBootTest
 @Log
 @Commit
-public class MemberRepositoryTest {
+public class MembersRepositoryTest {
 
     @Autowired
-    private MemberRepository repo;
+    private MembersRepository repo;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -32,27 +33,27 @@ public class MemberRepositoryTest {
     @Test
     public void testInsert() {
         for(int i=0; i <= 100; i++) {
-            Member member = new Member();
-            member.setUid("user"+i);
-            member.setUpw("pw"+i);
-            member.setUname("사용자"+i);
-            MemberRole role = new MemberRole();
-            if(i < 80) {
-                role.setRoleName("BASIC");
-            } else if (i <= 90) {
-                role.setRoleName("MANAGER");
+            MembersRole role;
+            if(i<80) {
+                role = MembersRole.builder().roleName("BASIC").build();
+            } else if (i<90 && i >=80) {
+                role = MembersRole.builder().roleName("MANAGER").build();
             } else {
-                role.setRoleName("ADMIN");
+                role = MembersRole.builder().roleName("ADMIN").build();
             }
-            member.setRoles(Arrays.asList(role));
-
+            Members member = Members.builder()
+                    .uid("user" + i)
+                    .upw(passwordEncoder.encode("pw" + i))
+                    .uname("사용자" + i)
+                    .roles(Arrays.asList(role))
+                    .build();
             repo.save(member);
         }
     }
 
     @Test
     public void testRead() {
-        Optional<Member> result = repo.findById("user85");
+        Optional<Members> result = repo.findById("user85");
         result.ifPresent(member -> log.info("member" + member));
     }
 
@@ -63,7 +64,7 @@ public class MemberRepositoryTest {
             ids.add("user"+i);
         }
         repo.findAllById(ids).forEach(member -> {
-            member.setUpw(passwordEncoder.encode(member.getUpw()));
+            member.updateEncryptPw(passwordEncoder.encode(member.getUpw()));
             repo.save(member);
         });
     }

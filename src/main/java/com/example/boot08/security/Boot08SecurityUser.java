@@ -1,7 +1,7 @@
 package com.example.boot08.security;
 
-import com.example.boot08.domain.Member;
-import com.example.boot08.domain.MemberRole;
+import com.example.boot08.domain.member.Members;
+import com.example.boot08.domain.member.MembersRole;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,14 +17,14 @@ public class Boot08SecurityUser extends User {
 
     private static final String ROLE_PREFIX = "ROLE_";
 
-    private Member member;
+    private Members member;
 
-    public Boot08SecurityUser (Member member) {
+    public Boot08SecurityUser (Members member) {
         super(member.getUid(), member.getUpw(), makeGrantedAuthority(member.getRoles()) );
         this.member = member;
     }
 
-    private static List<GrantedAuthority> makeGrantedAuthority(List<MemberRole> roles) {
+    private static List<GrantedAuthority> makeGrantedAuthority(List<MembersRole> roles) {
         List<GrantedAuthority> list = new ArrayList<>();
         roles.forEach(
                 role -> list.add(new SimpleGrantedAuthority(ROLE_PREFIX+role.getRoleName()))

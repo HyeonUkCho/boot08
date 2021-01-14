@@ -1,14 +1,10 @@
-package com.example.boot08.vo;
+package com.example.boot08.controller.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
-@Setter
-@NoArgsConstructor
-public class CarVO {
+@RequiredArgsConstructor
+public class CarDto {
     // 차량번
     private String carNo;
 
@@ -29,7 +25,7 @@ public class CarVO {
     private String gearType;
 
     @Builder
-    public CarVO(String carNo, String owner, String ownType, String driveDistance, String salePrice, String color, String gearType) {
+    public CarDto(String carNo, String owner, String ownType, String driveDistance, String salePrice, String color, String gearType) {
         this.carNo = carNo;
         this.owner = owner;
         this.ownType = ownType;

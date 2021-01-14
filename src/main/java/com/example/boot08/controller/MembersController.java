@@ -1,7 +1,7 @@
 package com.example.boot08.controller;
 
-import com.example.boot08.domain.Member;
-import com.example.boot08.persistence.MemberRepository;
+import com.example.boot08.domain.member.Members;
+import com.example.boot08.domain.member.MembersRepository;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,13 +16,13 @@ import javax.transaction.Transactional;
 @Log
 @Controller
 @RequestMapping("/member/")
-public class MemberController {
+public class MembersController {
 
     @Autowired
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    MemberRepository repo;
+    MembersRepository repo;
 
     @GetMapping("/join")
     public void join() {
@@ -31,13 +31,13 @@ public class MemberController {
 
     @Transactional
     @PostMapping("/join")
-    public String joinPost(@ModelAttribute("member") Member member) {
+    public String joinPost(@ModelAttribute("member") Members member) {
         log.info("MEMBER : " + member);
 
         String encryptPw = passwordEncoder.encode(member.getUpw());
         log.info("encryt : " + encryptPw);
 
-        member.setUpw(encryptPw);
+        member.updateEncryptPw(encryptPw);
 
         repo.save(member);
 

@@ -30,7 +30,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         log.info("security config......................................");
 
-//        http.authorizeRequests().antMatchers("/**").permitAll();
+        // 운영 반영 시 주석처리
+        http.csrf().disable();
+
+        http.authorizeRequests().antMatchers("/**").permitAll();
 
         http.authorizeRequests().antMatchers("/guest/**").permitAll();
         http.authorizeRequests().antMatchers("/manager/**").hasRole("MANAGER");
