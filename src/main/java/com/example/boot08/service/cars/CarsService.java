@@ -1,11 +1,13 @@
 package com.example.boot08.service.cars;
 
+import com.example.boot08.controller.dto.CarDto;
 import com.example.boot08.domain.cars.CarsInfo;
 import com.example.boot08.domain.cars.CarsInfoRepository;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Log
@@ -33,5 +35,27 @@ public class CarsService {
 
         result.forEach(carsInfo -> log.info("carInfo" + carsInfo));
         return result;
+    }
+
+    @Transactional
+    public CarsInfo registCarsInfo(CarsInfo carDto) {
+        CarsInfo carsInfo = CarsInfo.builder()
+                .carNo(carDto.getCarNo())
+                .ownerName(carDto.getOwnerName())
+                .transmission(carDto.getTransmission())
+                .carName(carDto.getCarName())
+                .carType(carDto.getCarType())
+                .color(carDto.getColor())
+                .company(carDto.getCompany())
+                .driveDistance(carDto.getDriveDistance())
+                .engine(carDto.getEngine())
+                .fuelType(carDto.getFuelType())
+                .makeYear(carDto.getMakeYear())
+                .ownType(carDto.getOwnType())
+                .salePrice(carDto.getSalePrice())
+                .power(carDto.getPower())
+                .seat(carDto.getSeat())
+                .build();
+        return repo.save(carsInfo);
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymelef.org">
+<html lang="en">
 
 <head>
 
@@ -81,114 +81,115 @@
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form th:action="@{car/registCar}" method="post" id="registCarForm">
+        <form action="/car/registCar" method="post" name="sentMessage" id="contactForm" novalidate>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Car Number</label>
-              <input class="form-control" placeholder="Car Number : 31어6331" name="carNo" required data-validation-required-message="Please enter your car number.">
+              <input type="text" class="form-control" placeholder="Car Number : 31어6331" name="carNumber" required data-validation-required-message="Please enter your car number.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Car Name</label>
-              <input class="form-control" placeholder="Car Name : 소나타" name="carName" required data-validation-required-message="Please enter your car name.">
+              <input type="text" class="form-control" placeholder="Car Name : 소나타" name="carName" required data-validation-required-message="Please enter your car name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
               <label>Car Type</label>
-              <input  class="form-control" placeholder="Car Type : SUV, SEDAN, etc.." name="carType" required data-validation-required-message="Please enter your car type.">
+              <input type="text" class="form-control" placeholder="Car Type : SUV, SEDAN, etc.." name="carType" required data-validation-required-message="Please enter your car type.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group col-xs-12 floating-label-form-group controls">
               <label>Company</label>
-              <input  class="form-control" placeholder="Company : 현대" name="company" required data-validation-required-message="Please enter a company.">
+              <input type="text" class="form-control" placeholder="Company : 현대" name="company" required data-validation-required-message="Please enter a company.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Owner Name</label>
-              <input  class="form-control" placeholder="Owner Name" name="ownerName" required data-validation-required-message="Please enter a owner name.">
+              <input type="text" class="form-control" placeholder="Owner Name" name="ownerName" required data-validation-required-message="Please enter a owner name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Own Type</label>
-              <input  class="form-control" placeholder="Own type : 자가,리스" name="ownType" required data-validation-required-message="Please enter a owner type.">
+              <input type="text" class="form-control" placeholder="Own type : 자가,리스" name="ownType" required data-validation-required-message="Please enter a owner type.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Drive Distance</label>
-              <input  class="form-control" placeholder="Drive Distance : 30000" name="driveDistance" required data-validation-required-message="Please enter a drive distance.">
+              <input type="text" class="form-control" placeholder="Drive Distance : 30000" name="driveDistance" required data-validation-required-message="Please enter a drive distance.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Make Year</label>
-              <input  class="form-control" placeholder="year : 2019" name="makeYear" required data-validation-required-message="Please enter a make year.">
+              <input type="text" class="form-control" placeholder="year : 2019" name="makeYear" required data-validation-required-message="Please enter a make year.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Desired price</label>
-              <input  class="form-control" placeholder="Desired Price : 3500" name="salePrice" required data-validation-required-message="Please enter your Disired Price.">
+              <input type="text" class="form-control" placeholder="Desired Price : 3500" name="salePrice" required data-validation-required-message="Please enter your Disired Price.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Color</label>
-              <input  class="form-control" placeholder="Color : Red" name="color" required data-validation-required-message="Please enter your car color.">
+              <input type="text" class="form-control" placeholder="Color : Red" name="color" required data-validation-required-message="Please enter your car color.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Transmission</label>
-              <input  class="form-control" placeholder="Transmission : auto" name="transmission" required data-validation-required-message="Please enter transmission.">
+              <input type="text" class="form-control" placeholder="Transmission : auto" name="transmission" required data-validation-required-message="Please enter transmission.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Fuel Type</label>
-              <input  class="form-control" placeholder="Fuel Type : gasoline" name="fuelType" required data-validation-required-message="Please enter fuel type.">
+              <input type="text" class="form-control" placeholder="Fuel Type : gasoline" name="fuelType" required data-validation-required-message="Please enter fuel type.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Engine</label>
-              <input  class="form-control" placeholder="Engine : 2000cc" name="engine" required data-validation-required-message="Please enter engine.">
+              <input type="text" class="form-control" placeholder="Engine : 2000cc" name="engine" required data-validation-required-message="Please enter engine.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Power</label>
-              <input class="form-control" placeholder="Power : 200" name="power" required data-validation-required-message="Please enter power.">
+              <input type="text" class="form-control" placeholder="Power : 200" name="power" required data-validation-required-message="Please enter power.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Seat</label>
-              <input  class="form-control" placeholder="Seat : 4" name="seat" required data-validation-required-message="Please enter seat.">
+              <input type="text" class="form-control" placeholder="Seat : 4" name="seat" required data-validation-required-message="Please enter seat.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <br>
-          <button type="submit" class="btn btn-primary" id="registbtn">Regist</button>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Regist</button>
         </form>
       </div>
     </div>
@@ -244,9 +245,6 @@
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
 
-  <script>
-
-  </script>
 </body>
 
 </html>

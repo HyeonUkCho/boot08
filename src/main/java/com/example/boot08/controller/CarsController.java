@@ -33,10 +33,10 @@ public class CarsController {
         for(int i=0; i<infos.size(); i++) {
             CarDto car = CarDto.builder()
                     .carNo(infos.get(i).getCarNo())
-                    .owner(infos.get(i).getOwner())
+                    .ownerName(infos.get(i).getOwnerName())
                     .color(infos.get(i).getColor())
                     .driveDistance(infos.get(i).getDriveDistance())
-                    .gearType(infos.get(i).getGearType())
+                    .transmission(infos.get(i).getTransmission())
                     .ownType(infos.get(i).getOwnType())
                     .salePrice(infos.get(i).getSalePrice())
                     .build();
@@ -56,10 +56,10 @@ public class CarsController {
         for(int i=0; i<infos.size(); i++) {
             CarDto car = CarDto.builder()
                     .carNo(infos.get(i).getCarNo())
-                    .owner(infos.get(i).getOwner())
+                    .ownerName(infos.get(i).getOwnerName())
                     .color(infos.get(i).getColor())
                     .driveDistance(infos.get(i).getDriveDistance())
-                    .gearType(infos.get(i).getGearType())
+                    .transmission(infos.get(i).getTransmission())
                     .ownType(infos.get(i).getOwnType())
                     .salePrice(infos.get(i).getSalePrice())
                     .build();
@@ -67,5 +67,12 @@ public class CarsController {
         }
         model.addAttribute("result", cars);
         return "carsinfo";
+    }
+
+    @PostMapping("/registCar")
+    public String registCar(@ModelAttribute CarsInfo carsInfo, Model model) {
+        logger.info(carsInfo.toString());
+        model.addAttribute("result", carsService.registCarsInfo(carsInfo));
+        return "registinfo";
     }
 }

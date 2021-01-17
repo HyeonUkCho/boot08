@@ -1,7 +1,5 @@
 package com.example.boot08.domain.cars;
 
-import com.example.boot08.domain.cars.CarsInfo;
-import com.example.boot08.domain.cars.CarsInfoRepository;
 import lombok.extern.java.Log;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,9 +28,9 @@ public class CarsInfoRepositoryTest {
                         .carNo("carNo" + i)
                         .color("Red")
                         .driveDistance("10" + i)
-                        .gearType("auto")
+                        .transmission("auto")
                         .ownType("자가")
-                        .owner("user" + i)
+                        .ownerName("user" + i)
                         .salePrice(1000000 / i + "")
                         .build();
             } else {
@@ -40,9 +38,9 @@ public class CarsInfoRepositoryTest {
                         .carNo("carNo" + i)
                         .color("Blue")
                         .driveDistance("10" + i)
-                        .gearType("auto")
+                        .transmission("auto")
                         .ownType("리스")
-                        .owner("user" + i)
+                        .ownerName("user" + i)
                         .salePrice(50000000 / i + "")
                         .build();
             }
@@ -54,5 +52,27 @@ public class CarsInfoRepositoryTest {
     public void testRead() {
         Optional<CarsInfo> result = repo.findById("carNo85");
         result.ifPresent(carsInfo -> log.info("carInfo" + carsInfo));
+    }
+
+    @Test
+    public void testRegistCarsInfo() {
+        CarsInfo carsInfo = CarsInfo.builder()
+                .carNo("1234")
+                .ownerName("username")
+                .transmission("auto")
+                .carName("E-CLASS")
+                .carType("SEDAN")
+                .color("BLACK")
+                .company("BENZ")
+                .driveDistance("50000")
+                .engine(3000)
+                .fuelType("gasoline")
+                .makeYear("2019")
+                .ownType("own")
+                .salePrice("40000")
+                .power(200)
+                .seat(4)
+                .build();
+        log.info(repo.save(carsInfo) + "");
     }
 }
