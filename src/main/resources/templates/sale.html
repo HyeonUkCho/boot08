@@ -64,7 +64,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
+          <div class="post-heading">
             <h1>Sell My Car</h1>
             <span class="subheading">Please fill out the form below.</span>
           </div>
@@ -77,7 +77,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Want to sell your car? Fill out the form below to regist in BlOCKING. This information will regist and share on block-chain platform. You will get back to result as soon as possible!</p>
+        <p>Fill out the form below to regist in BlOCK-ING. This information will regist and share on block-chain platform.</p>
+        <p>You will get back to result as soon as possible!</p>
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
@@ -126,8 +127,8 @@
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <label>Drive Distance</label>
-              <input  class="form-control" placeholder="Drive Distance : 30000" name="driveDistance" required data-validation-required-message="Please enter a drive distance.">
+              <label>Drive Distance (km)</label>
+              <input  class="form-control" placeholder="Drive Distance(km) : 30000" name="driveDistance" required data-validation-required-message="Please enter a drive distance.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -135,13 +136,6 @@
             <div class="form-group floating-label-form-group controls">
               <label>Make Year</label>
               <input  class="form-control" placeholder="year : 2019" name="makeYear" required data-validation-required-message="Please enter a make year.">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls">
-              <label>Desired price</label>
-              <input  class="form-control" placeholder="Desired Price : 3500" name="salePrice" required data-validation-required-message="Please enter your Disired Price.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -155,7 +149,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Transmission</label>
-              <input  class="form-control" placeholder="Transmission : auto" name="transmission" required data-validation-required-message="Please enter transmission.">
+              <input  class="form-control" placeholder="Transmission : auto/manual" name="transmission" required data-validation-required-message="Please enter transmission.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -168,8 +162,8 @@
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <label>Engine</label>
-              <input  class="form-control" placeholder="Engine : 2000cc" name="engine" required data-validation-required-message="Please enter engine.">
+              <label>Engine (cc)</label>
+              <input  class="form-control" placeholder="Engine(cc) : 2000" name="engine" required data-validation-required-message="Please enter engine.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -187,6 +181,13 @@
               <p class="help-block text-danger"></p>
             </div>
           </div>
+          <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Desired price (krw)</label>
+            <input  class="form-control" placeholder="Desired Price(KRW) : 3500" name="salePrice" required data-validation-required-message="Please enter your Disired Price.">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
           <br>
           <button type="submit" class="btn btn-primary" id="registbtn">Regist</button>
         </form>

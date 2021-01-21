@@ -35,19 +35,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests().antMatchers("/**").permitAll();
 
-//        http.authorizeRequests().antMatchers("/guest/**").permitAll();
-//        http.authorizeRequests().antMatchers("/manager/**").hasRole("MANAGER");
-//        http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
-//        http.formLogin().loginPage("/login");
-//        http.exceptionHandling().accessDeniedPage("/accessDenied");
-//        http.logout().logoutUrl("/logout").invalidateHttpSession(true);
+        http.authorizeRequests().antMatchers("/guest/**").permitAll();
+        http.authorizeRequests().antMatchers("/manager/**").hasRole("MANAGER");
+        http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
+        http.formLogin().loginPage("/login");
+        http.exceptionHandling().accessDeniedPage("/accessDenied");
+        http.logout().logoutUrl("/logout").invalidateHttpSession(true);
 
-//        http.userDetailsService(boot08UserService);
-//        http.rememberMe()
-//                .key("boot08")
-//                .userDetailsService(boot08UserService)
-//                .tokenRepository(getJDBCRepository())
-//                .tokenValiditySeconds(60 * 60 * 24); // 1 days
+        http.userDetailsService(boot08UserService);
+        http.rememberMe()
+                .key("boot08")
+                .userDetailsService(boot08UserService)
+                .tokenRepository(getJDBCRepository())
+                .tokenValiditySeconds(60 * 60 * 24); // 1 days
     }
 
     private PersistentTokenRepository getJDBCRepository() {

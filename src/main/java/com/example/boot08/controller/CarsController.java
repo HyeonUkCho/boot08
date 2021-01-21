@@ -33,12 +33,20 @@ public class CarsController {
         for(int i=0; i<infos.size(); i++) {
             CarDto car = CarDto.builder()
                     .carNo(infos.get(i).getCarNo())
+                    .carName(infos.get(i).getCarName())
+                    .carType(infos.get(i).getCarType())
+                    .company(infos.get(i).getCompany())
                     .ownerName(infos.get(i).getOwnerName())
-                    .color(infos.get(i).getColor())
-                    .driveDistance(infos.get(i).getDriveDistance())
-                    .transmission(infos.get(i).getTransmission())
                     .ownType(infos.get(i).getOwnType())
+                    .driveDistance(infos.get(i).getDriveDistance())
+                    .makeYear(infos.get(i).getMakeYear())
                     .salePrice(infos.get(i).getSalePrice())
+                    .color(infos.get(i).getColor())
+                    .transmission(infos.get(i).getTransmission())
+                    .fuelType(infos.get(i).getFuelType())
+                    .engine(infos.get(i).getEngine())
+                    .power(infos.get(i).getPower())
+                    .seat(infos.get(i).getSeat())
                     .build();
             cars.add(car);
         }
@@ -52,10 +60,12 @@ public class CarsController {
                              Model model) {
         logger.info("type : " + type + " keyword : " + keyword);
         List<CarsInfo> infos = carsService.getCarsInfo(type,keyword);
+        logger.info("infos size : " + infos.size());
         List<CarDto> cars = new ArrayList<>();
         for(int i=0; i<infos.size(); i++) {
             CarDto car = CarDto.builder()
                     .carNo(infos.get(i).getCarNo())
+                    .carName(infos.get(i).getCarName())
                     .ownerName(infos.get(i).getOwnerName())
                     .color(infos.get(i).getColor())
                     .driveDistance(infos.get(i).getDriveDistance())

@@ -34,6 +34,13 @@ public class SampleController {
         return "regist";
     }
 
+    @GetMapping("/sale")
+    public String sale() {
+        log.info("sale");
+        return "sale";
+    }
+
+
     @RequestMapping("/guest")
     public void forGuest() {
         log.info("guest");

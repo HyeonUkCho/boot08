@@ -98,4 +98,5 @@ public class CarsInfo extends BaseTimeEntity {
         this.power = power;
         this.seat = seat;
     }
+
 }
