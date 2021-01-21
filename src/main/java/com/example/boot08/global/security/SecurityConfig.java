@@ -1,4 +1,4 @@
-package com.example.boot08.security;
+package com.example.boot08.global.security;
 
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;

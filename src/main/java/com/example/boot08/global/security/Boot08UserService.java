@@ -1,4 +1,4 @@
-package com.example.boot08.security;
+package com.example.boot08.global.security;
 
 import com.example.boot08.domain.member.MembersRepository;
 import lombok.extern.java.Log;
