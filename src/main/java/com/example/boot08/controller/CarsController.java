@@ -85,4 +85,12 @@ public class CarsController {
         model.addAttribute("result", carsService.registCarsInfo(carsInfo));
         return "registinfo";
     }
+
+    @GetMapping("/details")
+    public String details(@RequestParam String carNo, Model model) {
+        logger.info("carNo : " + carNo);
+        model.addAttribute("result", carsService.getCarsInfoBycarNo(carNo));
+        return "detail";
+    }
+
 }

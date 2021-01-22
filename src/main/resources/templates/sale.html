@@ -128,14 +128,14 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Drive Distance (km)</label>
-              <input  class="form-control" placeholder="Drive Distance(km) : 30000" name="driveDistance" required data-validation-required-message="Please enter a drive distance.">
+              <input  class="form-control" placeholder="Drive Distance(km) : 30000" id="driveDistance" name="driveDistance" required data-validation-required-message="Please enter a drive distance.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Make Year</label>
-              <input  class="form-control" placeholder="year : 2019" name="makeYear" required data-validation-required-message="Please enter a make year.">
+              <input  class="form-control" placeholder="year : 2019" id="makeYear" name="makeYear" required data-validation-required-message="Please enter a make year.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -149,21 +149,21 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Transmission</label>
-              <input  class="form-control" placeholder="Transmission : auto/manual" name="transmission" required data-validation-required-message="Please enter transmission.">
+              <input  class="form-control" placeholder="Transmission : auto/manual" id="transmission" name="transmission" required data-validation-required-message="Please enter transmission.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Fuel Type</label>
-              <input  class="form-control" placeholder="Fuel Type : gasoline" name="fuelType" required data-validation-required-message="Please enter fuel type.">
+              <input  class="form-control" placeholder="Fuel Type : gasoline" id="fuelType" name="fuelType" required data-validation-required-message="Please enter fuel type.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Engine (cc)</label>
-              <input  class="form-control" placeholder="Engine(cc) : 2000" name="engine" required data-validation-required-message="Please enter engine.">
+              <input  class="form-control" placeholder="Engine(cc) : 2000" id="engine" name="engine" required data-validation-required-message="Please enter engine.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -190,6 +190,11 @@
         </div>
           <br>
           <button type="submit" class="btn btn-primary" id="registbtn">Regist</button>
+
+          <button type="button" class="btn btn-primary" id="predict">
+            판매가격 예상하기
+          </button>
+
         </form>
       </div>
     </div>
@@ -246,8 +251,59 @@
   <script src="js/clean-blog.min.js"></script>
 
   <script>
+    $(document).ready(function() {
+         var url = 'https://mb-used-car-shop.herokuapp.com/predict';
+         $('#predict').click(function(){
+            var transmission = $('#transmission').val();
+            var fuel = $('#fuelType').val();
+            var owner = '1';
+            var year = $('#makeYear').val();
+            var km_driven = $('#driveDistance').val().trim();
+            console.log(transmission);
+            console.log(fuel);
+            console.log(owner);
+            console.log(year);
+            console.log(km_driven);
+            if(transmission&&fuel&&owner&&year&&km_driven){
+                $.post(url,{
+                    transmission: transmission,
+                    fuel: fuel,
+                    owner: owner,
+                    year: year,
+                    km_driven: km_driven
+                },function(data,status){
+                    console.log(status);
+                    $('#predictPrice').val(data['estimated_price']);
+                })
+            }
 
+            });
+
+    });
   </script>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="predictPrice"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 
 </html>

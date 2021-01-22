@@ -9,4 +9,5 @@ public interface CarsInfoRepository extends JpaRepository<CarsInfo, String>{
     List<CarsInfo> findByCarNoContaining(String carNo);
     List<CarsInfo> findByCarTypeContains(String carType);
     List<CarsInfo> findByCompanyIsContaining(String company);
+
 }

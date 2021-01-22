@@ -76,29 +76,27 @@
 
 <!--<p>[[${result}]]</p>-->
 <div class="container">
-  <div th:with="cars=${result}">
-    <ul class="list-group" th:each="car:${cars}">
-      <a th:href="@{/car/details(carNo=${car.carNo})}">
-        <li class="list-group-item" >Car Number: [[${car.carNo}]]</li>
-        <li class="list-group-item" >Car Name: [[${car.carName}]]</li>
-      </a>
-      <hr>
-  <!--    <li class="list-group-item" >Car Type: [[${car.carType}]]</li>-->
-  <!--    <li class="list-group-item" >Company: [[${car.company}]]</li>-->
-  <!--&lt;!&ndash;    <li class="list-group-item" >[[${car.ownerName}]]</li>&ndash;&gt;-->
-  <!--    <li class="list-group-item" >Own Type: [[${car.ownType}]]</li>-->
-  <!--    <li class="list-group-item" >Distance: [[${car.driveDistance}]] (km)</li>-->
-  <!--    <li class="list-group-item" >Make Year: [[${car.makeYear}]] (year) </li>-->
-  <!--    <li class="list-group-item" >Sale price: [[${car.salePrice}]] (krw)</li>-->
-  <!--    <li class="list-group-item" >Color: [[${car.color}]]</li>-->
-  <!--    <li class="list-group-item" >Transmission: [[${car.transmission}]]</li>-->
-  <!--    <li class="list-group-item" >Fuel Type: [[${car.fuelType}]]</li>-->
-  <!--    <li class="list-group-item" >Engine: [[${car.engine}]] (cc)</li>-->
-  <!--    <li class="list-group-item" >Power: [[${car.power}]] (ps)</li>-->
-  <!--    <li class="list-group-item" >Seats: [[${car.seat}]]</li>-->
 
-    </ul>
+  <div th:with="car=${result}">
+  <!--  <ul class="list-group" th:each="car:${cars}">-->
+      <li class="list-group-item" >Car Number: [[${car.carNo}]]</li>
+      <li class="list-group-item" >Car Name: [[${car.carName}]]</li>
+      <li class="list-group-item" >Car Type: [[${car.carType}]]</li>
+      <li class="list-group-item" >Company: [[${car.company}]]</li>
+      <li class="list-group-item" >Own Type: [[${car.ownType}]]</li>
+      <li class="list-group-item" >Distance: [[${car.driveDistance}]] (km)</li>
+      <li class="list-group-item" >Make Year: [[${car.makeYear}]] (year) </li>
+      <li class="list-group-item" >Sale price: [[${car.salePrice}]] (krw)</li>
+      <li class="list-group-item" >Color: [[${car.color}]]</li>
+      <li class="list-group-item" >Transmission: [[${car.transmission}]]</li>
+      <li class="list-group-item" >Fuel Type: [[${car.fuelType}]]</li>
+      <li class="list-group-item" >Engine: [[${car.engine}]] (cc)</li>
+      <li class="list-group-item" >Power: [[${car.power}]] (ps)</li>
+      <li class="list-group-item" >Seats: [[${car.seat}]]</li>
+
+  <!--  </ul>-->
   </div>
+
 </div>
 
 
